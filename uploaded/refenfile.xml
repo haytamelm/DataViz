@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clippings>
+ <senseiClipping xmlns="http://websays.com/">
+  <externalID>1260050008</externalID>
+  <postID>163590183</postID>
+  <versionID>1</versionID>
+  <sourceID>http://www.twitter.com/dixiefive/statuses/719283858382974977</sourceID>
+  <domain>www.twitter.com</domain>
+  <apiObjectID>719283858382974977</apiObjectID>
+  <apiAuthorID>130870420</apiAuthorID>
+  <superType>social</superType>
+  <type>comment</type>
+  <sourceType>social</sourceType>
+  <authorType>anonymus</authorType>
+  <title>Tweet from @dixiefive</title>
+  <keywords>#brexit</keywords>
+  <keywords>#leaveeu</keywords>
+  <keywords>#voteleave</keywords>
+  <text>RT @britology_: @StrongerIn says the man who forced us into the ERM and said we should join
+   the EURO #Brexit #VoteLeave #LeaveEU</text>
+  <numOfFavorites>2</numOfFavorites>
+  <numOfReTweets>2</numOfReTweets>
+  <author>@dixiefive</author>
+  <user_numOfFollowers>463</user_numOfFollowers>
+  <authorsMentioned>@britology_</authorsMentioned>
+  <authorsMentioned>@strongerin</authorsMentioned>
+  <embeddedMediaType>UKNOWN</embeddedMediaType>
+  <isBestComment>false</isBestComment>
+  <date>2016-04-11T00:00:10+02:00</date>
+  <indexingTimeStamp>2016-04-11T00:00:10+02:00</indexingTimeStamp>
+  <langDetected>english</langDetected>
+  <websaysPolarity>-1</websaysPolarity>
+  <count1>4</count1>
+ </senseiClipping>
+ <senseiClipping xmlns="http://websays.com/">
+  <externalID>2089893415</externalID>
+  <postID>483388317</postID>
+  <versionID>1</versionID>
+  <sourceID>http://www.twitter.com/KeithBe1/statuses/719283907934466048</sourceID>
+  <domain>www.twitter.com</domain>
+  <apiObjectID>719283907934466048</apiObjectID>
+  <apiAuthorID>961196275</apiAuthorID>
+  <superType>social</superType>
+  <type>comment</type>
+  <sourceType>social</sourceType>
+  <authorType>anonymus</authorType>
+  <title>Tweet from @KeithBe1</title>
+  <text>RT @Lou_i5e: 'Leave now' Dutch urge Britons to back Brexit amid despotic EU plot to IGNORE
+   their voters http://ln.is/shr.gs/Fe6dt</text>
+  <numOfFavorites>2</numOfFavorites>
+  <numOfReTweets>6</numOfReTweets>
+  <author>@KeithBe1</author>
+  <user_numOfFollowers>1192</user_numOfFollowers>
+  <authorsMentioned>@lou_i5e</authorsMentioned>
+  <embeddedMediaType>UKNOWN</embeddedMediaType>
+  <isBestComment>false</isBestComment>
+  <date>2016-04-11T00:00:21+02:00</date>
+  <indexingTimeStamp>2016-04-11T00:00:22+02:00</indexingTimeStamp>
+  <langDetected>english</langDetected>
+  <websaysPolarity>-1</websaysPolarity>
+  <count1>8</count1>
+ </senseiClipping>
+</clippings>
