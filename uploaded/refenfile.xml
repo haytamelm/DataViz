@@ -60,4 +60,217 @@
   <websaysPolarity>-1</websaysPolarity>
   <count1>8</count1>
  </senseiClipping>
+ <senseiClipping xmlns="http://websays.com/">
+  <externalID>-1411915854</externalID>
+  <postID>-1387527592</postID>
+  <versionID>1</versionID>
+  <sourceID>http://www.twitter.com/FearnJenni/statuses/719284018957705216</sourceID>
+  <domain>www.twitter.com</domain>
+  <apiObjectID>719284018957705216</apiObjectID>
+  <apiAuthorID>292987643</apiAuthorID>
+  <superType>social</superType>
+  <type>comment</type>
+  <sourceType>social</sourceType>
+  <authorType>anonymus</authorType>
+  <title>Tweet from @FearnJenni</title>
+  <keywords>#voteleave</keywords>
+  <text>RT @vote_leave: Michael Gove says our money should be spent on our priorities like the NHS,
+   not pro-EU propaganda #VoteLeave http://pic.twitter.com/bSpDpgpZ4L</text>
+  <numOfFavorites>157</numOfFavorites>
+  <numOfReTweets>151</numOfReTweets>
+  <author>@FearnJenni</author>
+  <user_numOfFollowers>82</user_numOfFollowers>
+  <authorsMentioned>@vote_leave</authorsMentioned>
+  <embeddedMediaType>UKNOWN</embeddedMediaType>
+  <isBestComment>false</isBestComment>
+  <pictureURLs>https://pbs.twimg.com/ext_tw_video_thumb/719264950603091969/pu/img/paX0llYBEMrmQ3vh.jpg</pictureURLs>
+  <mediaURLs>https://pbs.twimg.com/ext_tw_video_thumb/719264950603091969/pu/img/paX0llYBEMrmQ3vh.jpg</mediaURLs>
+  <date>2016-04-11T00:00:48+02:00</date>
+  <indexingTimeStamp>2016-04-11T00:00:48+02:00</indexingTimeStamp>
+  <authorLocation>Monmouth</authorLocation>
+  <langDetected>english</langDetected>
+  <websaysPolarity>-1</websaysPolarity>
+  <count1>308</count1>
+ </senseiClipping>
+ <senseiClipping xmlns="http://websays.com/">
+  <externalID>1045371679</externalID>
+  <postID>-785527297</postID>
+  <versionID>1</versionID>
+  <sourceID>http://www.twitter.com/TownTerrier2/statuses/719284037970456576</sourceID>
+  <domain>www.twitter.com</domain>
+  <apiObjectID>719284037970456576</apiObjectID>
+  <apiAuthorID>337060340</apiAuthorID>
+  <superType>social</superType>
+  <type>comment</type>
+  <sourceType>social</sourceType>
+  <authorType>anonymus</authorType>
+  <title>Tweet from @TownTerrier2</title>
+  <keywords>#brexit</keywords>
+  <keywords>#leaveeu</keywords>
+  <keywords>#voteleave</keywords>
+  <keywords>#eureferendum</keywords>
+  <text>RT @DemocracyMovemt: EU is adding fuel to the Brexit fire with new burdens on tech startups
+   >>
+   http://www.cityam.com/238220/the-eu-is-adding-fuel-to-the-brexit-fire-through-new-burdens-on-technology-startups
+   #EUreferendum #VoteLeave #LeaveEU #Brexit</text>
+  <numOfFavorites>33</numOfFavorites>
+  <numOfReTweets>57</numOfReTweets>
+  <author>@TownTerrier2</author>
+  <user_numOfFollowers>181</user_numOfFollowers>
+  <authorsMentioned>@democracymovemt</authorsMentioned>
+  <embeddedMediaType>UKNOWN</embeddedMediaType>
+  <isBestComment>false</isBestComment>
+  <date>2016-04-11T00:00:52+02:00</date>
+  <indexingTimeStamp>2016-04-11T00:00:53+02:00</indexingTimeStamp>
+  <authorLocation>Great Britain</authorLocation>
+  <langDetected>english</langDetected>
+  <websaysPolarity>-1</websaysPolarity>
+  <count1>90</count1>
+ </senseiClipping>
+ <senseiClipping xmlns="http://websays.com/">
+  <externalID>-899593920</externalID>
+  <postID>-1920290410</postID>
+  <versionID>1</versionID>
+  <sourceID>http://www.twitter.com/kipperati/statuses/719284083981991936</sourceID>
+  <domain>www.twitter.com</domain>
+  <apiObjectID>719284083981991936</apiObjectID>
+  <apiAuthorID>3010157527</apiAuthorID>
+  <superType>social</superType>
+  <type>comment</type>
+  <sourceType>social</sourceType>
+  <authorType>anonymus</authorType>
+  <title>Tweet from @kipperati</title>
+  <text>RT @backbobspink: Cameron says Brexit=biblical scale disaster. Yet 2 months ago said he'd
+   LEAVE without v minor tweeks to his so called deal. He fools no one</text>
+  <numOfFavorites>1</numOfFavorites>
+  <numOfReTweets>1</numOfReTweets>
+  <author>@kipperati</author>
+  <user_numOfFollowers>998</user_numOfFollowers>
+  <authorsMentioned>@backbobspink</authorsMentioned>
+  <embeddedMediaType>UKNOWN</embeddedMediaType>
+  <isBestComment>false</isBestComment>
+  <date>2016-04-11T00:01:03+02:00</date>
+  <indexingTimeStamp>2016-04-11T00:01:04+02:00</indexingTimeStamp>
+  <authorLocation>Scotland Ni England, Wales</authorLocation>
+  <langDetected>english</langDetected>
+  <websaysPolarity>-1</websaysPolarity>
+  <count1>2</count1>
+ </senseiClipping>
+ <senseiClipping xmlns="http://websays.com/">
+  <externalID>-143173700</externalID>
+  <postID>-1920290410</postID>
+  <versionID>1</versionID>
+  <sourceID>http://www.twitter.com/kipperati/statuses/719284083981991936</sourceID>
+  <domain>www.twitter.com</domain>
+  <type>post</type>
+  <authorType>anonymus</authorType>
+  <text>Cameron says Brexit=biblical scale disaster. Yet 2 months ago said he'd LEAVE without v
+   minor tweeks to his so called deal. He fools no one</text>
+  <numOfComments>0</numOfComments>
+  <numOfFavorites>1</numOfFavorites>
+  <numOfReTweets>1</numOfReTweets>
+  <author>@backbobspink</author>
+  <embeddedMediaType>UKNOWN</embeddedMediaType>
+  <isBestComment>false</isBestComment>
+  <date>2016-04-11T00:01:03+02:00</date>
+  <indexingTimeStamp>2016-04-11T00:01:04+02:00</indexingTimeStamp>
+  <langDetected>english</langDetected>
+  <websaysPolarity>-1</websaysPolarity>
+  <count1>2</count1>
+ </senseiClipping>
+ <senseiClipping xmlns="http://websays.com/">
+  <externalID>-272983464</externalID>
+  <postID>-1387527592</postID>
+  <versionID>1</versionID>
+  <sourceID>http://www.twitter.com/Greymycal/statuses/719284103347118080</sourceID>
+  <domain>www.twitter.com</domain>
+  <apiObjectID>719284103347118080</apiObjectID>
+  <apiAuthorID>500330423</apiAuthorID>
+  <superType>social</superType>
+  <type>comment</type>
+  <sourceType>social</sourceType>
+  <authorType>anonymus</authorType>
+  <title>Tweet from @Greymycal</title>
+  <keywords>#voteleave</keywords>
+  <text>RT @vote_leave: Michael Gove says our money should be spent on our priorities like the NHS,
+   not pro-EU propaganda #VoteLeave http://pic.twitter.com/bSpDpgpZ4L</text>
+  <numOfFavorites>157</numOfFavorites>
+  <numOfReTweets>151</numOfReTweets>
+  <author>@Greymycal</author>
+  <user_numOfFollowers>154</user_numOfFollowers>
+  <authorsMentioned>@vote_leave</authorsMentioned>
+  <embeddedMediaType>UKNOWN</embeddedMediaType>
+  <isBestComment>false</isBestComment>
+  <pictureURLs>https://pbs.twimg.com/ext_tw_video_thumb/719264950603091969/pu/img/paX0llYBEMrmQ3vh.jpg</pictureURLs>
+  <mediaURLs>https://pbs.twimg.com/ext_tw_video_thumb/719264950603091969/pu/img/paX0llYBEMrmQ3vh.jpg</mediaURLs>
+  <date>2016-04-11T00:01:08+02:00</date>
+  <indexingTimeStamp>2016-04-11T00:01:08+02:00</indexingTimeStamp>
+  <authorLocation>Southampton</authorLocation>
+  <langDetected>english</langDetected>
+  <websaysPolarity>-1</websaysPolarity>
+  <count1>308</count1>
+ </senseiClipping>
+ <senseiClipping xmlns="http://websays.com/">
+  <externalID>2006448098</externalID>
+  <postID>-757146260</postID>
+  <versionID>1</versionID>
+  <sourceID>http://www.twitter.com/graham51518/statuses/719284128135397376</sourceID>
+  <domain>www.twitter.com</domain>
+  <apiObjectID>719284128135397376</apiObjectID>
+  <apiAuthorID>289221495</apiAuthorID>
+  <superType>social</superType>
+  <type>comment</type>
+  <sourceType>social</sourceType>
+  <authorType>anonymus</authorType>
+  <title>Tweet from @graham51518</title>
+  <keywords>#brexit</keywords>
+  <text>RT @Stop_The_EU: Britain has nothing to fear from trade out side the EU. They will trade
+   with us when we LEAVE. #Brexit http://pic.twitter.com/AIKS0XtWNQ</text>
+  <numOfFavorites>16</numOfFavorites>
+  <numOfReTweets>32</numOfReTweets>
+  <author>@graham51518</author>
+  <user_numOfFollowers>195</user_numOfFollowers>
+  <authorsMentioned>@stop_the_eu</authorsMentioned>
+  <embeddedMediaType>UKNOWN</embeddedMediaType>
+  <isBestComment>false</isBestComment>
+  <pictureURLs>https://pbs.twimg.com/media/Cftd991WsAABWPD.jpg</pictureURLs>
+  <mediaURLs>https://pbs.twimg.com/media/Cftd991WsAABWPD.jpg</mediaURLs>
+  <date>2016-04-11T00:01:14+02:00</date>
+  <indexingTimeStamp>2016-04-11T00:01:14+02:00</indexingTimeStamp>
+  <authorLocation>Newcastle Upon Tyne</authorLocation>
+  <langDetected>english</langDetected>
+  <websaysPolarity>-1</websaysPolarity>
+  <count1>48</count1>
+ </senseiClipping>
+ <senseiClipping xmlns="http://websays.com/">
+  <externalID>-1657507156</externalID>
+  <postID>1088660196</postID>
+  <versionID>1</versionID>
+  <sourceID>http://www.twitter.com/TownTerrier2/statuses/719284190248845313</sourceID>
+  <domain>www.twitter.com</domain>
+  <apiObjectID>719284190248845313</apiObjectID>
+  <apiAuthorID>337060340</apiAuthorID>
+  <superType>social</superType>
+  <type>comment</type>
+  <sourceType>social</sourceType>
+  <authorType>anonymus</authorType>
+  <title>Tweet from @TownTerrier2</title>
+  <text>RT @LeaveEUOfficial: Top online searches related to the referendum? "Leave EU" and "Britain
+   must leave"
+   https://www.express.co.uk/news/politics/659287/Leave-EU-most-searched-online-Brexit-EU-referendum-David-Cameron-leaflets
+   …</text>
+  <numOfFavorites>91</numOfFavorites>
+  <numOfReTweets>74</numOfReTweets>
+  <author>@TownTerrier2</author>
+  <user_numOfFollowers>181</user_numOfFollowers>
+  <authorsMentioned>@leaveeuofficial</authorsMentioned>
+  <embeddedMediaType>UKNOWN</embeddedMediaType>
+  <isBestComment>false</isBestComment>
+  <date>2016-04-11T00:01:29+02:00</date>
+  <indexingTimeStamp>2016-04-11T00:01:29+02:00</indexingTimeStamp>
+  <authorLocation>Great Britain</authorLocation>
+  <langDetected>english</langDetected>
+  <websaysPolarity>-1</websaysPolarity>
+  <count1>165</count1>
+ </senseiClipping>
 </clippings>
