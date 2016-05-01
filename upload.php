@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<?php session_start(); ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Timeline view</title>
@@ -52,12 +53,14 @@
 
     	$uploaddir = 'uploaded/';
     	$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+		$_SESSION["uploadfile"] = $uploadfile;
 
     	echo '<pre>';
     	if (!move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile))
     	{
     		header('Location: errorupload.html');
     	}
+		header('Location: xmlToMysql.php');
     }
     else
     {
@@ -65,63 +68,6 @@
     }
 
     ?>
-
-    <div id="visualization"></div>
-
-    <script>
-    var upfile = "<?php echo $uploadfile; ?>";
-	var container = document.getElementById('visualization');
-	var datasetTab = [];
-
-    xmlHTTP = new XMLHttpRequest();
-
-    try{
-        xmlHTTP.open("GET", upfile, false);
-        xmlHTTP.send(null);
-    }
-    catch (e) {
-        window.alert("Unable to load the requested file.");
-    }
-    parser = new DOMParser();
-    xmlDoc = parser.parseFromString(xmlHTTP.responseText, "text/xml");
-
-    senseis = xmlDoc.getElementsByTagName("senseiClipping");
-
-    for ( var i = 0; i < senseis.length ; i++ ){
-    	childSenseis = senseis[i].childNodes;
-		for ( var j = 0; j < childSenseis.length ; j++ ){
-			if(childSenseis[j].nodeType == 1){
-				if(childSenseis[j].tagName.toLowerCase() == 'date'){
-					var date = childSenseis[j].firstChild.nodeValue;
-				}
-				if(childSenseis[j].tagName.toLowerCase() == 'author'){
-					var auteur = childSenseis[j].firstChild.nodeValue;
-				}
-				if(childSenseis[j].tagName.toLowerCase() == 'text'){
-					var text = childSenseis[j].firstChild.nodeValue;
-				}
-			}
-    	}
-		var sensObj = {
-		id: (i+1), 
-		content: '<strong>'+auteur+'</strong>'+'<br/>'+text.substring(0,text.length/2)+'<br/>'+text.substring(text.length/2,text.length) , 
-		start: new Date(date)
-		};
-		datasetTab.push(sensObj);
-    }
-	var items = new vis.DataSet(datasetTab);
-	
-	// Configuration for the Timeline
-	var options = {
-    width: '100%',
-    height: '550px',
-	autoResize: true
-	};
-
-  // Create a Timeline
-  var timeline = new vis.Timeline(container, items, options);
-    </script>
-    </div>
 </div>
 
 </body>
