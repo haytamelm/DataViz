@@ -1,10 +1,11 @@
+<xml>
 <tweet id="47534655" txt="RT @britainelects: EU referendum poll: Remain: 51% (+4) Leave: 44% (-5) (via ORB, phone)">
 	<languages id="english">
-		<language score="0.997788">english</sentiment>
-		<language score="0.00211148">french</sentiment>
-		<language score="2.97947e-06">italia</sentiment>
-		<language score="3.99471e-05">deutche</sentiment>
-		<language score="5.74297e-05">spanish</sentiment>
+		<language score="0.997788">english</language>
+		<language score="0.00211148">french</language>
+		<language score="2.97947e-06">italia</language>
+		<language score="3.99471e-05">deutche</language>
+		<language score="5.74297e-05">spanish</language>
 	</languages>
 	<sentiments id="neutral">
 		<sentiment score="0.015415">positive</sentiment>
@@ -12,10 +13,10 @@
 		<sentiment score="0.974229">neutral</sentiment>
 	</sentiments>
 	<topics id="None">
-		<topic score="0.999645" cosine="11.656612300558585">None</thematic>
-		<topic score="1.36604e-07" cosine="13.31063115110221">For_eu</thematic>
-		<topic score="0.000355061" cosine="12.441224870587357">Against_eu</thematic>
-	<topics>
+		<topic score="0.999645" cosine="11.656612300558585">None</topic>
+		<topic score="1.36604e-07" cosine="13.31063115110221">For_eu</topic>
+		<topic score="0.000355061" cosine="12.441224870587357">Against_eu</topic>
+	</topics>
 	<hashtags>
 		<hashtag score="0.472566">#euref</hashtag>
 		<hashtag score="0.202945">#eu</hashtag>
@@ -24,11 +25,11 @@
 </tweet>
 <tweet id="754382832" txt="Young people could sway EU referendum outcome; 53% back Remain, only 52% of 18-34 y/o say they will definitely vote http://www.theguardian.com/politics/2016/apr/02/eu-referendum-young-voters-brexit-leave">
 	<languages id="english">
-		<language score="0.999767">english</sentiment>
-		<language score="0.000178812">french</sentiment>
-		<language score="3.07384e-07">italia</sentiment>
-		<language score="1.62288e-05">deutche</sentiment>
-		<language score="3.7994e-05">spanish</sentiment>
+		<language score="0.999767">english</language>
+		<language score="0.000178812">french</language>
+		<language score="3.07384e-07">italia</language>
+		<language score="1.62288e-05">deutche</language>
+		<language score="3.7994e-05">spanish</language>
 	</languages>
 	<sentiments id="neutral">
 		<sentiment score="0.103334">positive</sentiment>
@@ -36,13 +37,59 @@
 		<sentiment score="0.821353">neutral</sentiment>
 	</sentiments>
 	<topics id="None">
-		<topic score="0.89476" cosine="10.8275692095825">None</thematic>
-		<topic score="0.048297" cosine="10.715688279425802">For_eu</thematic>
-		<topic score="0.0569423" cosine="11.111730303333838">Against_eu</thematic>
-	<topics>
+		<topic score="0.89476" cosine="10.8275692095825">None</topic>
+		<topic score="0.048297" cosine="10.715688279425802">For_eu</topic>
+		<topic score="0.0569423" cosine="11.111730303333838">Against_eu</topic>
+	</topics>
 	<hashtags>
 		<hashtag score="0.162264">#euref</hashtag>
 		<hashtag score="0.0813281">#eu</hashtag>
+	</hashtags>
+</tweet>
+<tweet id="820306566" txt="">
+	<languages id="english">
+		<language score="0.987081">english</language>
+		<language score="0.011627">french</language>
+		<language score="0.00065305">italia</language>
+		<language score="3.41472e-06">deutche</language>
+		<language score="0.000635152">spanish</language>
+	</languages>
+	<sentiments id="neutral">
+		<sentiment score="0.120322">positive</sentiment>
+		<sentiment score="0.0282153">negative</sentiment>
+		<sentiment score="0.851462">neutral</sentiment>
+	</sentiments>
+	<topics id="None">
+		<topic score="0.907044" cosine="12.028260611018068">None</topic>
+		<topic score="0.010856" cosine="11.886633238891683">For_eu</topic>
+		<topic score="0.0820289" cosine="11.686898012346697">Against_eu</topic>
+	</topics>
+	<hashtags>
+		<hashtag score="0.100348">#eu</hashtag>
+	</hashtags>
+</tweet>
+<tweet id="895536968" txt="As he warns against Brexit and backs German deal...why the Frenchman selling our stock exchange is w... http://www.thisismoney.co.uk/money/markets/article-3523196/As-warns-against-Brexit-backs-German-deal-Frenchman-selling-stock-exchange-wrong.html #Business">
+	<languages id="english">
+		<language score="0.998502">english</language>
+		<language score="0.00022877">french</language>
+		<language score="8.32997e-06">italia</language>
+		<language score="0.00118833">deutche</language>
+		<language score="7.27394e-05">spanish</language>
+	</languages>
+	<sentiments id="neutral">
+		<sentiment score="0.0873805">positive</sentiment>
+		<sentiment score="0.0554949">negative</sentiment>
+		<sentiment score="0.857125">neutral</sentiment>
+	</sentiments>
+	<topics id="None">
+		<topic score="0.757436" cosine="13.315532403668714">None</topic>
+		<topic score="0.00914259" cosine="13.707325225054001">For_eu</topic>
+		<topic score="0.233421" cosine="14.038952497548859">Against_eu</topic>
+	</topics>
+	<hashtags>
+		<hashtag score="0.126953">#eu</hashtag>
+		<hashtag score="0.067573">#referendum2016</hashtag>
+		<hashtag score="0.190325">#votetoleave</hashtag>
 	</hashtags>
 </tweet>
 </xml>

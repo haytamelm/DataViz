@@ -8,10 +8,8 @@
   <link rel="icon" href="favicon.png">
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
-  <link href="visjs-dist/vis.css" rel="stylesheet" type="text/css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-  <script src="visjs-dist/vis.js"></script>
 </head>
 <body>
 
