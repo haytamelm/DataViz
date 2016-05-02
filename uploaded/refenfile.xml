@@ -12,7 +12,7 @@
 		<sentiment score="0.0103565">negative</sentiment>
 		<sentiment score="0.974229">neutral</sentiment>
 	</sentiments>
-	<topics id="None">
+	<topics id="For_eu">
 		<topic score="0.999645" cosine="11.656612300558585">None</topic>
 		<topic score="1.36604e-07" cosine="13.31063115110221">For_eu</topic>
 		<topic score="0.000355061" cosine="12.441224870587357">Against_eu</topic>
@@ -81,7 +81,7 @@
 		<sentiment score="0.0554949">negative</sentiment>
 		<sentiment score="0.857125">neutral</sentiment>
 	</sentiments>
-	<topics id="None">
+	<topics id="Against_eu">
 		<topic score="0.757436" cosine="13.315532403668714">None</topic>
 		<topic score="0.00914259" cosine="13.707325225054001">For_eu</topic>
 		<topic score="0.233421" cosine="14.038952497548859">Against_eu</topic>
