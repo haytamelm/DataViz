@@ -46,12 +46,12 @@
       <h1>Welcome</h1>
 	  
       <div style="text-align: center;margin-top: 180px;">
-        <h4>Upload your XML File Here:</h4>
+        <h4>Upload your XML Files Here:</h4>
         <form enctype="multipart/form-data" action="upload.php" method="post">
-			<input type="hidden" name="MAX_FILE_SIZE" value="50000" />
-			<span class="btn btn-default btn-file"> <input name="userfile" type="file" accept="text/xml"> </span>
+			<input type="hidden" name="MAX_FILE_SIZE" value="500000000" />
+			<span class="btn btn-default btn-file"> <input name="userfile[]" type="file" multiple="multiple" > </span>
 			<br/><br/>
-			<input class="btn btn-primary" type="submit" name="submit" value="Envoyer le fichier" />
+			<input class="btn btn-primary" type="submit" name="submit" value="Envoyers les fichiers" />
 		</form>
       </div>
 	  

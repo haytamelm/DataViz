@@ -44,25 +44,36 @@
       <p><a href="#">Link3</a></p>
     </div>
     <div class="col-sm-10 text-left" style="text-align: center;"> 
-          <?php
-
+<?php
     if(isset($_POST['submit']))
     {
-
+		$num_uploads = count($_FILES['userfile']['name']);
+		$total_files = count($_FILES['userfile']['name']);
     	$uploaddir = 'uploaded/';
-    	$uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
-		$_SESSION["uploadfile"] = $uploadfile;
-
-    	echo '<pre>';
-    	if (!move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile))
-    	{
-    		header('Location: errorupload.html');
-    	}
-		header('Location: xmlToMysql.php');
-    }
+		$uploadfiles = [];
+		echo $total_files;
+		
+		for($i = 0; $i < $total_files; $i++)
+		{
+			$uploadfiles[] = $uploaddir . basename($_FILES['userfile']['name'][$i]);
+			
+			echo '<pre>';
+			if (!move_uploaded_file($_FILES['userfile']['tmp_name'][$i], $uploadfiles[$i]))
+			{
+				$num_uploads--;
+			}
+		}
+		if($num_uploads == $total_files){
+			$_SESSION["uploadfiles"] = $uploadfiles;
+			header('Location: xmlToMysql.php');
+		}
+		else{
+			header('Location: errorupload.html');
+		}
+	}
     else
     {
-    	echo '<center>Error: no file specified !</center>';
+    	echo '<center>Error: no files specified !</center>';
     }
 
     ?>
