@@ -1,7 +1,7 @@
 <?php
 session_start();
 $time_start = microtime(true);
-ini_set('max_execution_time', 300);
+ini_set('max_execution_time', 500);
 ini_set('mysql.connect_timeout', 300);
 ini_set('default_socket_timeout', 300);
 
@@ -9,15 +9,17 @@ ini_set('default_socket_timeout', 300);
 include 'connectdb.php';
 
 $conn->query("DELETE FROM tweet");
+$conn->query("DELETE FROM hashtag");
 
-$tweet_insert = '';
-$hashtag_insert = '';
 $fcontent_tweet = '';
 $fcontent_hashtag = '';
 
 $myfile = fopen("tweetsfile.txt", "a") or die("Unable to open file!");
+$myfile2 = fopen("hashtagsfile.txt", "a") or die("Unable to open file!");
 
 $nbfiles = count($_SESSION["uploadfiles"]);
+
+echo $nbfiles."<br/>";
 
 for($i = 0; $i < $nbfiles; $i++)
 {
@@ -83,18 +85,18 @@ while ($reader->read())
 				
 				// hashtags
 				
-				/*for($i = 0; $i < count($hashtagsarr); $i++ ){
+				for($j = 0; $j < count($hashtagsarr); $j++){
 					//$hashtagscore = 0;
-					$hashtg = $hashtagsarr[$i];
-					$hashtag_insert .=  sprintf("INSERT INTO `hashtag`(`ID_TWEET`, `TXT_HASHTAG`, `SCORE_HASHTAG`) 
+					$hashtg = $hashtagsarr[$j];
+					/*$hashtag_insert .=  sprintf("INSERT INTO `hashtag`(`ID_TWEET`, `TXT_HASHTAG`, `SCORE_HASHTAG`) 
 							  VALUES ('%d','%s',0); ",
 							  $id_tweet,
 							  $hashtg
-							  );
-					//$fcontent_hashtag .= $id_tweet."\t".$hashtg."\t".'0\n';
+							  );*/
+					$fcontent_hashtag .= $id_tweet."\t".$hashtg."\n";
 							  
 				}
-				$hashtagsarr = array();*/
+				$hashtagsarr = array();
 				
 				
 				
@@ -105,14 +107,20 @@ while ($reader->read())
 
 				fwrite($myfile, $fcontent_tweet);
 				$fcontent_tweet = "";
+				fwrite($myfile2, $fcontent_hashtag);
+				$fcontent_hashtag = "";
 
 }
 
 
-if(!$conn->query("LOAD DATA INFILE '/xamppp/htdocs/DataViz/tweetsfile.txt' INTO TABLE tweet;")) 
+if(!$conn->query("LOAD DATA INFILE '/xamppp/htdocs/DataViz/tweetsfile.txt' IGNORE INTO TABLE tweet;")) 
 	echo "tweet: ".$conn->error."<br/>";
 	
+if(!$conn->query("LOAD DATA INFILE '/xamppp/htdocs/DataViz/hashtagsfile.txt' INTO TABLE hashtag(ID_TWEET,TXT_HASHTAG) SET ID_HASHTAG = NULL;")) 
+	echo "hashtag: ".$conn->error."<br/>";
+	
 fclose($myfile);
+fclose($myfile2);
 
 /*if(!mysqli_multi_query($conn,$hashtag_insert)) 
 	echo "hash: ".mysqli_error($conn)."<br/>";*/
@@ -120,7 +128,8 @@ fclose($myfile);
 $conn->close();
 $time_end = microtime(true);
 $time = $time_end - $time_start;
-echo "fini pendant ".sprintf("%.2f",$time)." secondes";
+echo "parsing time ".sprintf("%.2f",$time)." secondes";
+unset($_SESSION["uploadfiles"]);
 
 //header('Location: piechart.php');
 
