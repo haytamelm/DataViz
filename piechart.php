@@ -2,7 +2,7 @@
 <head></head>
 <body>
 
-<div id="pieChart"></div>
+<center><div id="pieChart"></div></center>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
 <script src="d3pie/d3pie.min.js"></script>
@@ -19,7 +19,7 @@ $against_eu = $conn->query("SELECT COUNT(*) FROM TWEET WHERE TOPIC_TWEET LIKE 'A
 var pie = new d3pie("pieChart", {
 	"header": {
 		"title": {
-			"text": "EU Referendum",
+			"text": "UK EU Referendum",
 			"fontSize": 24,
 			"font": "open sans"
 		},
