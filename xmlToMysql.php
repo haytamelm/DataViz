@@ -131,6 +131,6 @@ $time = $time_end - $time_start;
 echo "parsing time ".sprintf("%.2f",$time)." secondes";
 unset($_SESSION["uploadfiles"]);
 
-//header('Location: piechart.php');
+header('Location: piechart.php');
 
 ?>
