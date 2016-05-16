@@ -139,6 +139,6 @@ unset($_SESSION["uploadfiles"]);
 unlink('/xamppp/htdocs/DataViz/txt_files/tweetsfile.txt');
 unlink('/xamppp/htdocs/DataViz/txt_files/hashtagsfile.txt');
 
-header('Location: piechart.php');
+//header('Location: piechart.php');
 
 ?>
