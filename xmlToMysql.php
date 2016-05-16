@@ -1,28 +1,34 @@
 <?php
 session_start();
+
+if($_SESSION["upass"] != 1)
+	header('Location: errorupload.html');
+
 $time_start = microtime(true);
-ini_set('max_execution_time', 500);
+ini_set('max_execution_time', 600);
 ini_set('mysql.connect_timeout', 300);
 ini_set('default_socket_timeout', 300);
 
 
 include 'connectdb.php';
 
-$conn->query("DELETE FROM tweet");
-$conn->query("DELETE FROM hashtag");
+$conn->query("DELETE FROM tweet;");
+$conn->query("DELETE FROM hashtag;");
 
 $fcontent_tweet = '';
 $fcontent_hashtag = '';
 
-$myfile = fopen("tweetsfile.txt", "a") or die("Unable to open file!");
-$myfile2 = fopen("hashtagsfile.txt", "a") or die("Unable to open file!");
+$myfile = fopen("txt_files/tweetsfile.txt", "a") or die("Unable to open file!");
+$myfile2 = fopen("txt_files/hashtagsfile.txt", "a") or die("Unable to open file!");
 
 $nbfiles = count($_SESSION["uploadfiles"]);
 
-echo $nbfiles."<br/>";
 
 for($i = 0; $i < $nbfiles; $i++)
 {
+
+//$myfile = fopen("txt_files/tweetsfile".$i.".txt", "a") or die("Unable to open file!");
+//$myfile2 = fopen("txt_files/hashtagsfile".$i.".txt", "a") or die("Unable to open file!");
 
 $reader = new XMLReader;
 $reader->open($_SESSION["uploadfiles"][$i]);
@@ -48,7 +54,7 @@ while ($reader->read())
 			  switch($node_name){
 				case 'tweet':
 					$id_tweet = $reader->getAttribute('id');
-					$txt_tweet = $reader->getAttribute('txt');
+					//$txt_tweet = $reader->getAttribute('txt');
 					break;
 				case 'languages':
 					 $language_tweet = $reader->getAttribute('id');
@@ -80,7 +86,7 @@ while ($reader->read())
 				$sentiment_tweet,
 				$topic_tweet);*/
 				
-				$fcontent_tweet .= $id_tweet."\t".$txt_tweet."\t".$date_tweet."\t".$language_tweet."\t".$sentiment_tweet."\t".$topic_tweet."\n";
+				$fcontent_tweet .= $id_tweet."\t".$date_tweet."\t".$language_tweet."\t".$sentiment_tweet."\t".$topic_tweet."\n";
 				
 				
 				// hashtags
@@ -112,15 +118,13 @@ while ($reader->read())
 
 }
 
-
-if(!$conn->query("LOAD DATA INFILE '/xamppp/htdocs/DataViz/tweetsfile.txt' IGNORE INTO TABLE tweet;")) 
+if(!$conn->query(
+"LOAD DATA INFILE '/xamppp/htdocs/DataViz/txt_files/tweetsfile.txt' IGNORE INTO TABLE tweet(ID_TWEET,DATE_TWEET,LANGUAGE_TWEET,SENTIMENT_TWEET,TOPIC_TWEET);")) 
 	echo "tweet: ".$conn->error."<br/>";
 	
-if(!$conn->query("LOAD DATA INFILE '/xamppp/htdocs/DataViz/hashtagsfile.txt' INTO TABLE hashtag(ID_TWEET,TXT_HASHTAG) SET ID_HASHTAG = NULL;")) 
+if(!$conn->query(
+"LOAD DATA INFILE '/xamppp/htdocs/DataViz/txt_files/hashtagsfile.txt' INTO TABLE hashtag(ID_TWEET,TXT_HASHTAG) SET ID_HASHTAG = NULL;")) 
 	echo "hashtag: ".$conn->error."<br/>";
-	
-fclose($myfile);
-fclose($myfile2);
 
 /*if(!mysqli_multi_query($conn,$hashtag_insert)) 
 	echo "hash: ".mysqli_error($conn)."<br/>";*/
@@ -128,8 +132,12 @@ fclose($myfile2);
 $conn->close();
 $time_end = microtime(true);
 $time = $time_end - $time_start;
-echo "parsing time ".sprintf("%.2f",$time)." secondes";
+$_SESSION['exectime'] = $time;
+//echo "parsing time ".sprintf("%.2f",$_SESSION['exectime'])." secondes<br/><br/>";
+
 unset($_SESSION["uploadfiles"]);
+unlink('/xamppp/htdocs/DataViz/txt_files/tweetsfile.txt');
+unlink('/xamppp/htdocs/DataViz/txt_files/hashtagsfile.txt');
 
 header('Location: piechart.php');
 

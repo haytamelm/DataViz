@@ -65,6 +65,7 @@
 		}
 		if($num_uploads == $total_files){
 			$_SESSION["uploadfiles"] = $uploadfiles;
+			$_SESSION["upass"] = 1;
 			header('Location: xmlToMysql.php');
 		}
 		else{
