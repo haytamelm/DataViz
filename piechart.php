@@ -35,11 +35,6 @@ $maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
 <script src="d3pie/d3pie.min.js"></script>
 
-<?php
-
-echo "parsing time ".sprintf("%.2f",$_SESSION['exectime'])." secondes<br/><br/>";
-
-?>
 <script>
 
 document.getElementById("update").click();

@@ -12,8 +12,8 @@ ini_set('default_socket_timeout', 300);
 
 include 'connectdb.php';
 
-$conn->query("DELETE FROM tweet;");
-$conn->query("DELETE FROM hashtag;");
+//$conn->query("DELETE FROM tweet;");
+//$conn->query("DELETE FROM hashtag;");
 
 $fcontent_tweet = '';
 $fcontent_hashtag = '';

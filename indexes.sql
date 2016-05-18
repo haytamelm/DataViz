@@ -2,7 +2,7 @@ CREATE INDEX all_tweet_index ON tweet (date_tweet,language_tweet,sentiment_tweet
 
 DROP INDEX all_tweet_index ON tweet;
 
-explain SELECT COUNT(*) FROM TWEET IGNORE INDEX (all_tweet_index) WHERE TOPIC_TWEET = 'None' AND DATE_TWEET = '2016-02-02';
+explain SELECT COUNT(*) FROM TWEET USE INDEX (all_tweet_index) WHERE TOPIC_TWEET = 'None' AND DATE_TWEET = '2016-02-02';
 
 show index from tweet;
 
