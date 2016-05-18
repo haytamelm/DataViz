@@ -99,7 +99,7 @@ while ($reader->read())
 							  $id_tweet,
 							  $hashtg
 							  );*/
-					$fcontent_hashtag .= $id_tweet."\t".$hashtg."\n";
+					$fcontent_hashtag .= $date_tweet."\t".$hashtg."\n";
 							  
 				}
 				$hashtagsarr = array();
@@ -123,7 +123,7 @@ if(!$conn->query(
 	echo "tweet: ".$conn->error."<br/>";
 	
 if(!$conn->query(
-"LOAD DATA INFILE '/xamppp/htdocs/DataViz/txt_files/hashtagsfile.txt' INTO TABLE hashtag(ID_TWEET,TXT_HASHTAG) SET ID_HASHTAG = NULL;")) 
+"LOAD DATA INFILE '/xamppp/htdocs/DataViz/txt_files/hashtagsfile.txt' INTO TABLE hashtag(DATE_HASHTAG,TXT_HASHTAG) SET ID_HASHTAG = NULL;")) 
 	echo "hashtag: ".$conn->error."<br/>";
 
 /*if(!mysqli_multi_query($conn,$hashtag_insert)) 
@@ -135,7 +135,11 @@ $time = $time_end - $time_start;
 $_SESSION['exectime'] = $time;
 //echo "parsing time ".sprintf("%.2f",$_SESSION['exectime'])." secondes<br/><br/>";
 
-unset($_SESSION["uploadfiles"]);
+//unset($_SESSION["uploadfiles"]);
+
+fclose($myfile);
+fclose($myfile2);
+
 unlink('/xamppp/htdocs/DataViz/txt_files/tweetsfile.txt');
 unlink('/xamppp/htdocs/DataViz/txt_files/hashtagsfile.txt');
 

@@ -1,16 +1,34 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+include 'connectdb.php';
+$mindate = ($conn->query("SELECT min(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
+$maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
+?>
 <html>
-<head></head>
+<head>
+	<style>
+	#errors
+	{
+		color: red;
+	}
+	</style>
+</head>
 <body>
 
 <center> 
-	<div id="pieChart"></div><br/>
-	<INPUT type="checkbox" id="Against" value="1" checked onclick="refreshPieNorm();"> Against
-	<INPUT type="checkbox" id="For" value="2" checked onclick="refreshPieNorm();"> For
-	<INPUT type="checkbox" id="None" value="3" checked onclick="refreshPieNorm();"> None
+	<div id="pieChart"></div>
 	<br/>
-	<input type="date" id="dateDeb" oninput="refreshDatePie();"> Date début
-	<input type="date" id="dateFin" oninput="refreshDatePie();"> Date fin
+	<INPUT type="checkbox" id="Against" checked > Against
+	<INPUT type="checkbox" id="For" checked > For
+	<INPUT type="checkbox" id="None" checked > None
+	<br/>
+	<input type="date" id="dateDeb" 
+	value="<?php echo $mindate; ?>"> Date début
+	<input type="date" id="dateFin" 
+	value="<?php echo $maxdate; ?>"> Date fin
+	<br/><br/>
+	<input type="button" id="update" value="Update" onclick="refreshPie();">
+	<div id="errors"></div>
 </center>
 <br/>
 
@@ -24,57 +42,53 @@ echo "parsing time ".sprintf("%.2f",$_SESSION['exectime'])." secondes<br/><br/>"
 ?>
 <script>
 
-changeDate = 0;
+document.getElementById("update").click();
 
-function refreshDatePie(){
-	changeDate++;
-	if(changeDate > 1){
-		var dated = document.getElementById('dateDeb').value;
-		var datef = document.getElementById('dateFin').value;
-		refreshPieDate(dated,datef);
+function refreshPie(){
+	document.getElementById("errors").innerHTML = '';
+	var dated = document.getElementById('dateDeb').value;
+	if(dated==''){
+	  document.getElementById("errors").innerHTML = "date debut est vide";
+	  return 0;}
+	var datef = document.getElementById('dateFin').value;
+	if(datef==''){
+	  document.getElementById("errors").innerHTML = "date fin est vide";
+	  return 0;}
+	if(datef < dated){
+	  document.getElementById("errors").innerHTML = "date fin doit étre supérieure à date debut";
+	  return 0;}
+	nbChoixCoches = 0;
+	var qfor=0,qagainst=0,qnone=0;
+	if (document.getElementById('Against').checked) { nbChoixCoches++; qagainst=1; }
+	if (document.getElementById('For').checked) { nbChoixCoches++; qfor=1; }
+	if (document.getElementById('None').checked) { nbChoixCoches++; qnone=1; }
+	if(nbChoixCoches < 2 ){
+	   document.getElementById("errors").innerHTML = 'cochez au moins 2 choix';
+	   return 0;
 	}
+	sendPieData(dated,datef,qfor,qagainst,qnone);
 }
 
-function refreshPieNorm(){
+function sendPieData(dated,datef,qfor,qagainst,qnone){
 
 xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
          reponse = xmlhttp.responseText;
 		 reponses = reponse.split(",");
-		 var none = reponses[0];
-		 var For = reponses[1];
-		 var against = reponses[2];
-		 loadPie(against,For,none);
+		 console.log(reponses);
+		 var numNone = reponses[0];
+		 var numFor = reponses[1];
+		 var numAgainst = reponses[2];
+		 loadPie(numNone,numFor,numAgainst);
      }
 };
-xmlhttp.open("GET","getPieData.php",true);
-xmlhttp.send();
-
+xmlhttp.open("POST","getPieData.php",true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("qfor=" + qfor + "&qagainst=" + qagainst + "&qnone=" + qnone + "&dd=" + dated + "&df=" + datef);
 }
 
-function refreshPieDate(dd,df){
-
-xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-         reponse = xmlhttp.responseText;
-		 reponses = reponse.split(",");
-		 var none = reponses[0];
-		 var For = reponses[1];
-		 var against = reponses[2];
-		 loadPie(against,For,none);
-     }
-};
-xmlhttp.open("GET","getPieData.php?dd=" + dd + "&df=" + df,true);
-xmlhttp.send();
-}
-
-function loadPie(nagainst,nfor,nnone){
-
-if (!document.getElementById('Against').checked) { nagainst = 0;};
-if (!document.getElementById('For').checked) {nfor = 0;};
-if (!document.getElementById('None').checked) {nnone = 0;}
+function loadPie(numNone,numFor,numAgainst){
 
 document.getElementById("pieChart").innerHTML = "";
 
@@ -86,16 +100,16 @@ var pie = new d3pie("pieChart", {
 			"font": "open sans"
 		},
 		"subtitle": {
-			"text": "Number of tweets: " + (parseInt(nnone)+parseInt(nfor)+parseInt(nagainst)),
+			"text": "Number of tweets: " + (parseInt(numNone)+parseInt(numFor)+parseInt(numAgainst)),
 			"color": "#999999",
-			"fontSize": 12,
+			"fontSize": 13,
 			"font": "open sans"
 		},
 		"titleSubtitlePadding": 9
 	},
 	"footer": {
 		"color": "#999999",
-		"fontSize": 10,
+		"fontSize": 14,
 		"font": "open sans",
 		"location": "bottom-left"
 	},
@@ -108,17 +122,17 @@ var pie = new d3pie("pieChart", {
 		"content": [
 			{
 				"label": "For",
-				"value": parseInt(nfor) ,
+				"value": parseInt(numFor) ,
 				"color": "#7d9058"
 			},
 			{
 				"label": "Against",
-				"value": parseInt(nagainst),
+				"value": parseInt(numAgainst),
 				"color": "#44b9b0"
 			},
 			{
 				"label": "None",
-				"value": parseInt(nnone),
+				"value": parseInt(numNone),
 				"color": "#7c37c0"
 			}
 		]

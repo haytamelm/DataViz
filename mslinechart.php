@@ -25,16 +25,31 @@ body {
 
 </style>
 <body>
-<script src="//d3js.org/d3.v3.min.js"></script>
-<?php 
+<?php
+ini_set('max_execution_time', 600);
 
 include 'connectdb.php';
-
+$mindate = ($conn->query("SELECT min(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
+$maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
 $data_text = "date\tnone\tfor\tagainst";
 
-$date = date_create('2016-02-01');
+?>
 
-for($i=0; $i < 50; $i++)
+<div id="mslchart"></div>
+<br/>
+<center>
+<input type="date" id="dateDeb" value="<?php echo $mindate; ?>"> Date debut
+<input type="date" id="dateFin" value="<?php echo $maxdate; ?>"> Date fin
+<br/><br/>
+<input type="button" id="update" value="Update" onclick="refreshChart();">
+</center>
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+<?php
+
+$date = date_create($mindate);
+
+for($i=0; $date < date_create($maxdate) ; $i++)
 {
 date_add($date, date_interval_create_from_date_string('1 days'));
 $datet = date_format($date, 'Ymd');
@@ -55,7 +70,30 @@ fwrite($dfile, $data_text);
 
 loadChart("datax.txt");
 
+function refreshChart()
+{
+var dated = document.getElementById('dateDeb').value;
+var datef = document.getElementById('dateFin').value;
+sendMslData(dated,datef);
+}
+
+function sendMslData(dated,datef){
+
+xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		 console.log(xmlhttp.responseText);
+         loadChart("datax.txt");
+     }
+};
+xmlhttp.open("POST","getMSlineData.php",true);
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("dd=" + dated + "&df=" + datef);
+}
+
 function loadChart(datafile){
+
+document.getElementById("mslchart").innerHTML = "";
 
 var margin = {top: 20, right: 80, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
@@ -84,7 +122,7 @@ var line = d3.svg.line()
     .x(function(d) { return x(d.date); })
     .y(function(d) { return y(d.temperature); });
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#mslchart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -128,7 +166,7 @@ d3.tsv(datafile, function(error, data) {
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Number of tweets (?F)");
+      .text("Number of tweets");
 
   var city = svg.selectAll(".city")
       .data(cities)
@@ -149,3 +187,8 @@ d3.tsv(datafile, function(error, data) {
 });
 }
 </script>
+<?php 
+fclose($dfile);
+$conn->close();
+//unlink('datax.txt');
+?>
