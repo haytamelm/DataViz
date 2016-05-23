@@ -82,7 +82,7 @@ $data_text = "date\tnone\tfor\tagainst";
                         </ul>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>Date summary</a>
+                        <a href="datesum.php"><i class="fa fa-fw fa-bar-chart-o"></i>Date summary</a>
                     </li>
                     
                 </ul>
@@ -119,10 +119,9 @@ $data_text = "date\tnone\tfor\tagainst";
 						<div id="home" class="tab-pane fade in active">
 							<!-- pie section -->
 							<div class="col-lg-6 col-md-12">
-								<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
 								<script src="d3pie/d3pie.min.js"></script>
-                                <script src="topicrefreshpie.js" type="text/javascript"></script>
-                                <script src="topicpiechart.js" type="text/javascript"></script>
+                                <script src="js/topicrefreshpie.js" type="text/javascript"></script>
+                                <script src="js/topicpiechart.js" type="text/javascript"></script>
 								<div id="pieChart"></div>
 							</div>
 							<!-- form section -->
@@ -161,13 +160,13 @@ $data_text = "date\tnone\tfor\tagainst";
 						</div>
 						<!-- multi lines tab -->
 						<div id="menu1" class="tab-pane fade">
-                            <script src="//d3js.org/d3.v3.min.js"></script>
-                            <script src="topicmslinechart.js" type="text/javascript"></script>
+                            <script src="js/d3.v3.min.js"></script>
+                            <script src="js/topicmslinechart.js" type="text/javascript"></script>
                             <!-- multi lines section -->
 							<div class="col-lg-12 col-md-12">
                                 <?php //include 'topicmslinedefault.php'; ?>
                                
-                                <script src="topicmslinerefresh.js" type="text/javascript"></script>
+                                <script src="js/topicmslinerefresh.js" type="text/javascript"></script>
 								<div id="mslchart"></div>
 							</div>
                             <!-- multi lines form -->

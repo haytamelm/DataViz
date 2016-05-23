@@ -82,7 +82,7 @@ $data_text = "date\tenglish\tfrench\titalia\tdeutche\tspanish";
                         </ul>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i>Date summary</a>
+                        <a href="datesum.php"><i class="fa fa-fw fa-bar-chart-o"></i>Date summary</a>
                     </li>
                     
                 </ul>
@@ -119,10 +119,9 @@ $data_text = "date\tenglish\tfrench\titalia\tdeutche\tspanish";
 						<div id="home" class="tab-pane fade in active">
 							<!-- pie section -->
 							<div class="col-lg-6 col-md-12">
-								<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.4/d3.min.js"></script>
 								<script src="d3pie/d3pie.min.js"></script>
-                                <script src="languagerefreshpie.js" type="text/javascript"></script>
-                                <script src="languagepiechart.js" type="text/javascript"></script>
+                                <script src="js/languagerefreshpie.js" type="text/javascript"></script>
+                                <script src="js/languagepiechart.js" type="text/javascript"></script>
 								<div id="pieChart"></div>
 							</div>
 							<!-- form section -->
@@ -160,12 +159,12 @@ $data_text = "date\tenglish\tfrench\titalia\tdeutche\tspanish";
 						</div>
 						<!-- multi lines tab -->
 						<div id="menu1" class="tab-pane fade">
-                            <script src="//d3js.org/d3.v3.min.js"></script>
-                            <script src="languagemslinechart.js" type="text/javascript"></script>
+                            <script src="js/d3.v3.min.js"></script>
+                            <script src="js/languagemslinechart.js" type="text/javascript"></script>
                             <!-- multi lines section -->
 							<div class="col-lg-12 col-md-12">
 
-                                <script src="languagemslinerefresh.js" type="text/javascript"></script>
+                                <script src="js/languagemslinerefresh.js" type="text/javascript"></script>
 								<div id="mslchart"></div>
 							</div>
                             <!-- multi lines form -->
