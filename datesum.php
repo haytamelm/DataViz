@@ -1,7 +1,7 @@
 ﻿<?php session_start(); 
 include 'connectdb.php';
-$mindate = ($conn->query("SELECT min(DATE_TWEET) FROM TWEET IGNORE INDEX (all_tweet_index);")->fetch_row()[0]);
-$maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET IGNORE INDEX (all_tweet_index);")->fetch_row()[0]);
+$mindate = ($conn->query("SELECT min(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
+$maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@ $maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET IGNORE INDEX (all_tw
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Date Summary - DataViz</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -105,8 +105,8 @@ $maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET IGNORE INDEX (all_tw
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                       <div id="dates">
-                        Date début <input type="date" id="dateDeb" value="<?php echo $mindate; ?>">
-						Date fin   <input type="date" id="dateFin" value="<?php echo $maxdate; ?>">
+                        <div class="criter">Date début</div> <input type="date" id="dateDeb" value="<?php echo $mindate; ?>">
+						<div class="criter">Date fin</div>   <input type="date" id="dateFin" value="<?php echo $maxdate; ?>">
                         <input type="button" id="update" value="Update" onclick="refresh();">
                         <div id="error"></div>
                         <script src="js/datesumrefresh.js" type="text/javascript"></script>
@@ -220,12 +220,16 @@ $maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET IGNORE INDEX (all_tw
 
     </div>
     <!-- /#wrapper -->
-
+    
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    
+    <script>
+    document.getElementById("update").click();
+    </script>
 
 </body>
 

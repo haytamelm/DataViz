@@ -1,9 +1,8 @@
 ﻿<?php 
 session_start(); 
 include 'connectdb.php';
-$mindate = ($conn->query("SELECT min(DATE_TWEET) FROM TWEET IGNORE INDEX (all_tweet_index);")->fetch_row()[0]);
-$maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET IGNORE INDEX (all_tweet_index);")->fetch_row()[0]);
-$data_text = "";
+$mindate = ($conn->query("SELECT min(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
+$maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +15,7 @@ $data_text = "";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Sentiment - DataViz</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +29,14 @@ $data_text = "";
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <style>
-    .x.axis path {
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
   display: none;
 }
 
@@ -113,7 +119,7 @@ $data_text = "";
 						<ul class="nav nav-tabs">
 							<li class="active"><a data-toggle="tab" href="#home">Pie Chart</a></li>
 							<li><a data-toggle="tab" href="#menu1">Lines Chart</a></li>
-							<li><a data-toggle="tab" href="#menu2">Chart 2</a></li>
+							<li><a data-toggle="tab" href="#menu2">Stacked Chart</a></li>
 						</ul>
 						<!-- tab pie -->
 						<div id="home" class="tab-pane fade in active">
@@ -127,21 +133,21 @@ $data_text = "";
 							<!-- form section -->
 							<div class="col-lg-6 col-md-12">
                                 <br/>
-								<p>Sentiment:</p>
+								<p><div class="criter">Sentiment:</div></p>
 								<form role="form">
 									<label class="checkbox-inline"><input type="checkbox" id="piepositive" checked>Positive</label>
 									<label class="checkbox-inline"><input type="checkbox" id="pienegative" checked>Negative</label>
 									<label class="checkbox-inline"><input type="checkbox" id="pieneutral" checked>Neutral</label>
 								</form>
                                 <br/>
-								<p>Topic:</p>
+								<p><div class="criter">Topic:</div></p>
 								<form role="form">
 									<label class="checkbox-inline"><input type="checkbox" id="pieagainst" checked>Against</label>
 									<label class="checkbox-inline"><input type="checkbox" id="piefor" checked>For</label>
 									<label class="checkbox-inline"><input type="checkbox" id="pienone" checked>None</label>
 								</form>
                                 <br/>
-								<p>Language:</p>
+								<p><div class="criter">Language:</div></p>
 								<form role="form">
 									<label class="checkbox-inline"><input type="checkbox" id="pieenglish" checked>English</label>
 									<label class="checkbox-inline"><input type="checkbox" id="piefrench" checked>French</label>
@@ -150,8 +156,8 @@ $data_text = "";
 									<label class="checkbox-inline"><input type="checkbox" id="piespanish" checked>Spanish</label>
 								</form>
 								<br/>
-								Date début <input type="date" id="piedateDeb" value="<?php echo $mindate; ?>">
-								Date fin   <input type="date" id="piedateFin" value="<?php echo $maxdate; ?>">
+								<div class="criter">Date début</div> <input type="date" id="piedateDeb" value="<?php echo $mindate; ?>">
+								<div class="criter">Date fin </div>  <input type="date" id="piedateFin" value="<?php echo $maxdate; ?>">
 								<br/><br/>
 								<input type="button" id="pieupdate" value="Update" onclick="refreshPie();">
 								<div id="pieerrors"></div>
@@ -171,18 +177,19 @@ $data_text = "";
 							<div class="col-lg-12 col-md-12">
                             <br/>
                                 <form role="form">
-								Language:
+								<div class="criter">Topic:</div>
 									<label class="checkbox-inline"><input type="checkbox" id="mslinefor" checked>For</label>
 									<label class="checkbox-inline"><input type="checkbox" id="mslineagainst" checked>Against</label>
 									<label class="checkbox-inline"><input type="checkbox" id="mslinenone" checked>None</label>
-								Language:
+								<div class="criter">Language:</div>
 									<label class="checkbox-inline"><input type="checkbox" id="mslineenglish" checked>English</label>
 									<label class="checkbox-inline"><input type="checkbox" id="mslinefrench" checked>French</label>
 									<label class="checkbox-inline"><input type="checkbox" id="mslineitalia" checked>Italia</label>
 									<label class="checkbox-inline"><input type="checkbox" id="mslinedeutche" checked>Deutche</label>
 									<label class="checkbox-inline"><input type="checkbox" id="mslinespanish" checked>Spanish</label>
-                                Date début <input type="date" id="mslinedateDeb" value="<?php echo $mindate; ?>">
-								Date fin   <input type="date" id="mslinedateFin" value="<?php echo $maxdate; ?>">
+                                <br/><br/>
+                                <div class="criter">Date début</div> <input type="date" id="mslinedateDeb" value="<?php echo $mindate; ?>">
+								<div class="criter">Date fin </div>  <input type="date" id="mslinedateFin" value="<?php echo $maxdate; ?>">
 								<input type="button" id="mslineupdate" value="Update" onclick="refreshMsline();">
 								<div id="mslineerrors"></div>
                               </form>
@@ -190,11 +197,33 @@ $data_text = "";
 						</div>
 						<!-- another tab -->
 						<div id="menu2" class="tab-pane fade">
-							<div class="col-lg-6 col-md-12">
-								<h3>Menu 2</h3>
-								<p>Some content in menu 2.</p>
+							<script src="js/topicstackedchart.js" type="text/javascript"></script>
+                            <!-- multi lines section -->
+							<div class="col-lg-12 col-md-12">
+                            
+                                <script src="js/sentimentstackedrefresh.js" type="text/javascript"></script>
+								<div id="stackedchart"></div>
 							</div>
-							<div class="col-lg-6 col-md-12">
+                            <!-- multi lines form -->
+							<div class="col-lg-12 col-md-12">
+                            <br/>
+                                <form role="form">
+								<div class="criter">Topic:</div>
+									<label class="checkbox-inline"><input type="checkbox" id="stackedfor" checked>For</label>
+									<label class="checkbox-inline"><input type="checkbox" id="stackedagainst" checked>Against</label>
+									<label class="checkbox-inline"><input type="checkbox" id="stackednone" checked>None</label>
+								<div class="criter">Language:</div>
+									<label class="checkbox-inline"><input type="checkbox" id="stackedenglish" checked>English</label>
+									<label class="checkbox-inline"><input type="checkbox" id="stackedfrench" checked>French</label>
+									<label class="checkbox-inline"><input type="checkbox" id="stackeditalia" checked>Italia</label>
+									<label class="checkbox-inline"><input type="checkbox" id="stackeddeutche" checked>Deutche</label>
+									<label class="checkbox-inline"><input type="checkbox" id="stackedspanish" checked>Spanish</label>
+                                <br/><br/>
+                                <div class="criter">Date début</div> <input type="date" id="stackeddateDeb" value="<?php echo $mindate; ?>">
+								<div class="criter">Date fin </div>  <input type="date" id="stackeddateFin" value="<?php echo $maxdate; ?>">
+								<input type="button" id="stackedupdate" value="Update" onclick="refreshStacked();">
+								<div id="stackederrors"></div>
+                              </form>
 							</div>
 						</div>
 					</div>  
@@ -240,6 +269,7 @@ $data_text = "";
 	<script>
 	document.getElementById("pieupdate").click();
 	document.getElementById("mslineupdate").click();
+    document.getElementById("stackedupdate").click();
 </script>
 
 </body>

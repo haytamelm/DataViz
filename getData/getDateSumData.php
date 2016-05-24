@@ -9,18 +9,21 @@ $df = $_POST['df'];
 
 $for = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND TOPIC_TWEET = 'For_eu';"
                       )->fetch_row()[0];
                       
 $against = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND TOPIC_TWEET = 'Against_eu';"
                       )->fetch_row()[0];                     
 
 $none = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND TOPIC_TWEET = 'None';"
                       )->fetch_row()[0];
@@ -29,30 +32,35 @@ $none = $conn->query("SELECT COUNT(*)
 
 $en = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND LANGUAGE_TWEET = 'english';"
                       )->fetch_row()[0];
                       
 $fr = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND LANGUAGE_TWEET = 'french';"
                       )->fetch_row()[0];
 
 $it = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND LANGUAGE_TWEET = 'italia';"
                       )->fetch_row()[0];
 
 $de = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND LANGUAGE_TWEET = 'deutche';"
                       )->fetch_row()[0];
 
 $sp = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND LANGUAGE_TWEET = 'spanish';"
                       )->fetch_row()[0];                      
@@ -64,18 +72,21 @@ $sp = $conn->query("SELECT COUNT(*)
 
 $positive = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND SENTIMENT_TWEET = 'positive';"
                       )->fetch_row()[0];
                       
 $negative = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND SENTIMENT_TWEET = 'negative';"
                       )->fetch_row()[0];                     
 
 $neutral = $conn->query("SELECT COUNT(*) 
                        FROM TWEET
+                       IGNORE INDEX(all_tweet)
                        WHERE (DATE_TWEET BETWEEN '$dd' AND '$df')
                        AND SENTIMENT_TWEET = 'neutral';"
                       )->fetch_row()[0];

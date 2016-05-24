@@ -34,6 +34,7 @@ if(!empty($_POST))
     {
         $positive = $conn->query("SELECT COUNT(*) 
                                   FROM TWEET
+                                  IGNORE INDEX(all_tweet)
                                   WHERE TOPIC_TWEET IN (".$qtopics.")
                                   AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                                   AND LANGUAGE_TWEET IN (".$qlanguages.")
@@ -45,6 +46,7 @@ if(!empty($_POST))
     {
         $negative = $conn->query("SELECT COUNT(*)
                                   FROM TWEET
+                                  IGNORE INDEX(all_tweet)
                                   WHERE TOPIC_TWEET IN (".$qtopics.")
                                   AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                                   AND LANGUAGE_TWEET IN (".$qlanguages.")
@@ -56,6 +58,7 @@ if(!empty($_POST))
     {
         $neutral = $conn->query("SELECT COUNT(*)
                                  FROM TWEET
+                                 IGNORE INDEX(all_tweet)
                                  WHERE TOPIC_TWEET IN (".$qtopics.")
                                  AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                                  AND LANGUAGE_TWEET IN (".$qlanguages.")

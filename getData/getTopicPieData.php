@@ -33,8 +33,8 @@ if(!empty($_POST))
     if(intval($_POST['qnone']) == 1)
     {
         $none = $conn->query("SELECT COUNT(*) 
-                              FROM TWEET 
-                              IGNORE INDEX (all_tweet_index)
+                              FROM TWEET
+                              IGNORE INDEX(all_tweet)
                               WHERE TOPIC_TWEET = 'None'
                               AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                               AND LANGUAGE_TWEET IN (".$qlanguages.")
@@ -46,6 +46,7 @@ if(!empty($_POST))
     {
         $for_eu = $conn->query("SELECT COUNT(*)
                                 FROM TWEET
+                                IGNORE INDEX(all_tweet)
                                 WHERE TOPIC_TWEET = 'For_eu' 
                                 AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                                 AND LANGUAGE_TWEET IN (".$qlanguages.")
@@ -57,6 +58,7 @@ if(!empty($_POST))
     {
         $against_eu = $conn->query("SELECT COUNT(*)
                                     FROM TWEET
+                                    IGNORE INDEX(all_tweet)
                                     WHERE TOPIC_TWEET = 'Against_eu' 
                                     AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                                     AND LANGUAGE_TWEET IN (".$qlanguages.")

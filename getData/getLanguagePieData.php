@@ -33,8 +33,8 @@ if(!empty($_POST))
     if(intval($_POST['en']) == 1)
     {
         $en = $conn->query("SELECT COUNT(*) 
-                              FROM TWEET 
-                              IGNORE INDEX (all_tweet_index)
+                              FROM TWEET
+                              IGNORE INDEX(all_tweet)
                               WHERE TOPIC_TWEET IN (".$qtopics.")
                               AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                               AND LANGUAGE_TWEET = 'english'
@@ -45,8 +45,8 @@ if(!empty($_POST))
     if(intval($_POST['fr']) == 1)
     {
         $fr = $conn->query("SELECT COUNT(*) 
-                              FROM TWEET 
-                              IGNORE INDEX (all_tweet_index)
+                              FROM TWEET
+                              IGNORE INDEX(all_tweet)
                               WHERE TOPIC_TWEET IN (".$qtopics.")
                               AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                               AND LANGUAGE_TWEET = 'french'
@@ -57,8 +57,8 @@ if(!empty($_POST))
     if(intval($_POST['it']) == 1)
     {
         $it = $conn->query("SELECT COUNT(*) 
-                              FROM TWEET 
-                              IGNORE INDEX (all_tweet_index)
+                              FROM TWEET
+                              IGNORE INDEX(all_tweet)
                               WHERE TOPIC_TWEET IN (".$qtopics.")
                               AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                               AND LANGUAGE_TWEET = 'italia'
@@ -69,8 +69,8 @@ if(!empty($_POST))
     if(intval($_POST['de']) == 1)
     {
         $de = $conn->query("SELECT COUNT(*) 
-                              FROM TWEET 
-                              IGNORE INDEX (all_tweet_index)
+                              FROM TWEET
+                              IGNORE INDEX(all_tweet)
                               WHERE TOPIC_TWEET IN (".$qtopics.")
                               AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                               AND LANGUAGE_TWEET = 'deutche'
@@ -82,7 +82,7 @@ if(!empty($_POST))
     {
         $sp = $conn->query("SELECT COUNT(*) 
                               FROM TWEET 
-                              IGNORE INDEX (all_tweet_index)
+                              IGNORE INDEX(all_tweet)
                               WHERE TOPIC_TWEET IN (".$qtopics.")
                               AND (DATE_TWEET BETWEEN '$dd' AND '$df')
                               AND LANGUAGE_TWEET = 'spanish'
