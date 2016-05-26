@@ -76,10 +76,26 @@ $maxdate = ($conn->query("SELECT max(DATE_TWEET) FROM TWEET;")->fetch_row()[0]);
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#hash"><i class="fa fa-fw fa-arrows-v"></i> Hashtag Radar: <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="hash" class="collapse">
+                            <li>
+                                <a href="radarChartTopic.php">Topic</a>
+                            </li>
+                            <li>
+                                <a href="radarChartLangue.php">Langugage</a>
+                            </li>
+							<li>
+                                <a href="RadarChartSentiment.php">Sentiment</a> 
+                            </li>
+                        </ul>
+                    </li>
                     <li class="active">
                         <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i>Date summary</a>
                     </li>
-                    
+                     <li>
+                        <a href="hashcloud.php"><i class="fa fa-fw fa-cloud"></i>Hashtag Cloud</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
