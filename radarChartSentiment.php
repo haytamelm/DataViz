@@ -195,7 +195,8 @@ $data_text = "date\tnone\tfor\tagainst";
         <!-- /#wrapper -->
 
         <script>
-        var data;
+        var data , LegendOptions;
+        var maxval;
 
         function getDates(startDate, stopDate) {
           var dateArray = [];
@@ -230,10 +231,14 @@ $data_text = "date\tnone\tfor\tagainst";
           xhr.send("tags=" + value3 + "&dd=" + value1 + "&df=" + value2);
         }
 
-        function readData(oData) {  
-          console.log(oData);
-          data = eval(oData);
-          console.log(data);
+        function readData(oData) {
+          console.log(oData)
+          oData = oData.split("aaaa");
+          data = oData[0];
+          LegendOptions = oData[1];
+          maxval = parseInt(oData[2]);
+          maxval = maxval + 0.1;
+          data = eval(data);
 
         }
 
@@ -245,8 +250,7 @@ $data_text = "date\tnone\tfor\tagainst";
           var colorscale = d3.scale.category10();
 
                     //Legend titles
-                    var LegendOptions = document.getElementById("tags_1").value;
-                    LegendOptions = LegendOptions.split(",");
+                    LegendOptions = LegendOptions.split(";");
 
                     //Data
                     var d = data;
@@ -255,7 +259,7 @@ $data_text = "date\tnone\tfor\tagainst";
                     var mycfg = {
                       w: w,
                       h: h,
-                      maxValue: 0.2,
+                      maxValue: maxval,
                       levels: 6,
                       ExtraWidthX: 300
                     }
@@ -268,7 +272,7 @@ $data_text = "date\tnone\tfor\tagainst";
                     /////////// Initiate legend ////////////////
                     ////////////////////////////////////////////
 
-                    var svg = d3.select('#body')
+                    var svg = d3.select('#chart')
                     .selectAll('svg')
                     .append('svg')
                     .attr("width", w+300)

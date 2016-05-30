@@ -38,214 +38,216 @@ $data_text = "date\tnone\tfor\tagainst";
   <link href="css/sb-admin.css" rel="stylesheet">
   
   <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
   <!-- tag -->
   <link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
   <script type="text/javascript" src="js/jquery.tagsinput.js"></script>
-      </head>
+</head>
 
-      <body>
-        <script src="js/radarChart.js"></script>
-        <script type="text/javascript">
-      function onAddTag(tag) {
-        alert("Added a tag: " + tag);
-      }
-      function onRemoveTag(tag) {
-        alert("Removed a tag: " + tag);
-      }
-      function onChangeTag(input,tag) {
-        alert("Changed a tag: " + tag);
-      }
-      $(function() {
-        $('#tags_1').tagsInput({width:'auto',placeholderColor:'#c000'});
-      });
-      </script>
-        <div id="wrapper">
+<body>
+  <script src="js/radarChart.js"></script>
+  <script type="text/javascript">
+  function onAddTag(tag) {
+    alert("Added a tag: " + tag);
+  }
+  function onRemoveTag(tag) {
+    alert("Removed a tag: " + tag);
+  }
+  function onChangeTag(input,tag) {
+    alert("Changed a tag: " + tag);
+  }
+  $(function() {
+    $('#tags_1').tagsInput({width:'auto',placeholderColor:'#c000'});
+  });
+  </script>
+  <div id="wrapper">
 
-          <!-- Navigation -->
-          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="index.php">DataViz</a>
-            </div>
-            <!-- Top Menu Items -->
-            
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Acceuil</a>
-                    </li>
-					<li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Visualisations par: <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="topic.php">Topic</a>
-                            </li>
-                            <li>
-                                <a href="language.php">Langugage</a>
-                            </li>
-							<li>
-                                <a href="sentiment.php">Sentiment</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#hash"><i class="fa fa-fw fa-arrows-v"></i> Hashtag Radar: <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="hash" class="collapse in">
-                            <li>
-                                <a href="radarChartTopic.php">Topic</a>
-                            </li>
-                            <li>
-                                <a href="radarChartLangue.php">Langugage</a>
-                            </li>
-							<li>
-                                <a href="RadarChartSentiment.php">Sentiment</a> 
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="datesum.php"><i class="fa fa-fw fa-bar-chart-o"></i>Date summary</a>
-                    </li>
-                    <li>
-                        <a href="hashcloud.php"><i class="fa fa-fw fa-cloud"></i>Hashtag Cloud</a>
-                    </li>
-                </ul>   
-            </div>
-            <!-- /.navbar-collapse -->
-          </nav>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.php">DataViz</a>
+      </div>
+      <!-- Top Menu Items -->
 
-          <div id="page-wrapper">
+      <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav side-nav">
+          <li>
+            <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Acceuil</a>
+          </li>
+          <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Visualisations par: <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="demo" class="collapse">
+              <li>
+                <a href="topic.php">Topic</a>
+              </li>
+              <li>
+                <a href="language.php">Langugage</a>
+              </li>
+              <li>
+                <a href="sentiment.php">Sentiment</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#hash"><i class="fa fa-fw fa-arrows-v"></i> Hashtag Radar: <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="hash" class="collapse in">
+              <li>
+                <a href="radarChartTopic.php">Topic</a>
+              </li>
+              <li>
+                <a href="radarChartLangue.php">Langugage</a>
+              </li>
+              <li>
+                <a href="RadarChartSentiment.php">Sentiment</a> 
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="datesum.php"><i class="fa fa-fw fa-bar-chart-o"></i>Date summary</a>
+          </li>
+          <li>
+            <a href="hashcloud.php"><i class="fa fa-fw fa-cloud"></i>Hashtag Cloud</a>
+          </li>
+        </ul>   
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
 
-            <div class="container-fluid">
+    <div id="page-wrapper">
 
-              <!-- Page Heading -->
-              <div class="row">
-                <div class="col-lg-12">
-                  <h1 class="page-header">
-                    Radar par langue
-                  </h1>
+      <div class="container-fluid">
 
-
-
-                </div>
-              </div>
-              <!-- /.row -->
+        <!-- Page Heading -->
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="page-header">
+              Radar par langue
+            </h1>
 
 
-              <!-- /.row -->
-
-              <div class="row">
-                <div id="chart" class="col-lg-7 col-md-12">
-
-                </div>
-                <div class="col-lg-5 col-md-12">
-                  <br/>
-                  <br/>
-                  <br/>
-                  <br/>
-                  Date début <input type="date" id="piedateDeb" value="<?php echo $mindate; ?>">
-                  <br/><br/>
-                  Date fin   <input type="date" id="piedateFin" value="<?php echo $maxdate; ?>">
-                  <br/><br/>
-                  <p><label>Defaults:</label>
-                    <input id="tags_1" type="text" class="tags" value="#eu,#uk,#euref" />
-                  </p>
-                  <br/>
-                  <button id="b1" type="button" class="btn btn-primary" onclick="request(this)">recherche</button>
-                </div>
-              </div>
-              <!-- /.row -->
-
-              <div class="row">
-                <div class="col-lg-12">
-
-                </div>
-              </div>
-              <!-- /.row -->
-
-              <div class="row">
-                <div class="col-lg-4">
-
-                </div>
-                <div class="col-lg-4">
-
-                </div>
-                <div class="col-lg-4">
-
-                </div>
-              </div>
-              <!-- /.row -->
-
-            </div>
-            <!-- /.container-fluid -->
 
           </div>
-          <!-- /#page-wrapper -->
-
         </div>
-        <!-- /#wrapper -->
+        <!-- /.row -->
 
-        <script>
-        var data;
 
-        function getDates(startDate, stopDate) {
-          var dateArray = [];
-          var currentDate = moment(startDate);
-          while (currentDate <= stopDate) {
-            dateArray.push( moment(currentDate).format('YYYY-MM-DD') )
-            currentDate = moment(currentDate).add(1, 'days');
-          }
-          return dateArray;
-        }
+        <!-- /.row -->
 
-        function request(oSelect) {
+        <div class="row">
+          <div id="chart" class="col-lg-7 col-md-12">
 
-          var value1 = document.getElementById("piedateDeb").value;
-          var value2 = document.getElementById("piedateFin").value;
-          var value3 = document.getElementById("tags_1").value;
+          </div>
+          <div class="col-lg-5 col-md-12">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            Date début <input type="date" id="piedateDeb" value="<?php echo $mindate; ?>">
+            <br/><br/>
+            Date fin   <input type="date" id="piedateFin" value="<?php echo $maxdate; ?>">
+            <br/><br/>
+            <p><label>Defaults:</label>
+              <input id="tags_1" type="text" class="tags" value="#eu,#uk,#euref" />
+            </p>
+            <br/>
+            <button id="b1" type="button" class="btn btn-primary" onclick="request(this)">recherche</button>
+          </div>
+        </div>
+        <!-- /.row -->
 
-          var range= getDates(new Date(value1), new Date(value2));
+        <div class="row">
+          <div class="col-lg-12">
 
-          var xhr   = getXMLHttpRequest();
+          </div>
+        </div>
+        <!-- /.row -->
 
-          xhr.onreadystatechange = function() {
-            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
-              readData(xhr.responseText);
-              radarChart();
-            } else if (xhr.readyState < 4) {
-            }
-          };
+        <div class="row">
+          <div class="col-lg-4">
 
-          xhr.open("POST", "getData/radarChartLangueSQL.php", true);
-          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-          xhr.send("tags=" + value3 + "&dd=" + value1 + "&df=" + value2);
-        }
+          </div>
+          <div class="col-lg-4">
 
-        function readData(oData) {  
-          console.log(oData);
-          data = eval(oData);
-          console.log(data);
+          </div>
+          <div class="col-lg-4">
 
-        }
+          </div>
+        </div>
+        <!-- /.row -->
 
-        function radarChart(){
+      </div>
+      <!-- /.container-fluid -->
 
-          var w = 500,
-          h = 500;
+    </div>
+    <!-- /#page-wrapper -->
 
-          var colorscale = d3.scale.category10();
+  </div>
+  <!-- /#wrapper -->
+
+  <script>
+  var data,LegendOptions;
+  var maxval=0;
+  function getDates(startDate, stopDate) {
+    var dateArray = [];
+    var currentDate = moment(startDate);
+    while (currentDate <= stopDate) {
+      dateArray.push( moment(currentDate).format('YYYY-MM-DD') )
+      currentDate = moment(currentDate).add(1, 'days');
+    }
+    return dateArray;
+  }
+
+  function request(oSelect) {
+
+    var value1 = document.getElementById("piedateDeb").value;
+    var value2 = document.getElementById("piedateFin").value;
+    var value3 = document.getElementById("tags_1").value;
+
+    var range= getDates(new Date(value1), new Date(value2));
+
+    var xhr   = getXMLHttpRequest();
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
+        readData(xhr.responseText);
+        radarChart();
+      } else if (xhr.readyState < 4) {
+      }
+    };
+
+    xhr.open("POST", "getData/radarChartLangueSQL.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("tags=" + value3 + "&dd=" + value1 + "&df=" + value2);
+  }
+
+  function readData(oData) { 
+          console.log(oData)
+          oData = oData.split("aaaa");
+          data = oData[0];
+          LegendOptions = oData[1];
+          maxval = parseInt(oData[2]);
+          maxval = maxval + 0.1;
+          data = eval(data);
+  }
+
+  function radarChart(){
+
+    var w = 500,
+    h = 500;
+
+    var colorscale = d3.scale.category10();
 
                     //Legend titles
-                    var LegendOptions = document.getElementById("tags_1").value;
-                    LegendOptions = LegendOptions.split(",");
+                    LegendOptions = LegendOptions.split(";");
 
                     //Data
                     var d = data;
@@ -254,7 +256,7 @@ $data_text = "date\tnone\tfor\tagainst";
                     var mycfg = {
                       w: w,
                       h: h,
-                      maxValue: 0.2,
+                      maxValue: maxval,
                       levels: 6,
                       ExtraWidthX: 300
                     }
@@ -263,11 +265,10 @@ $data_text = "date\tnone\tfor\tagainst";
                     //Will expect that data is in %'s
                     RadarChart.draw("#chart", data, mycfg);
 
-                    ////////////////////////////////////////////
+                    
+                    
                     /////////// Initiate legend ////////////////
-                    ////////////////////////////////////////////
-
-                    var svg = d3.select('#body')
+                    var svg = d3.select('#chart')
                     .selectAll('svg')
                     .append('svg')
                     .attr("width", w+300)
@@ -281,7 +282,7 @@ $data_text = "date\tnone\tfor\tagainst";
                     .attr("y", 10)
                     .attr("font-size", "12px")
                     .attr("fill", "#404040")
-                    .text("% des HASTAG selon la langue ");
+                    .text("% des HASTAG selon le sentiment ");
 
                     //Initiate Legend 
                     var legend = svg.append("g")
@@ -301,6 +302,7 @@ $data_text = "date\tnone\tfor\tagainst";
                       .attr("height", 10)
                       .style("fill", function(d, i){ return colorscale(i);})
                       ;
+                      
                       //Create text next to squares
                       legend.selectAll('text')
                       .data(LegendOptions)
@@ -314,11 +316,11 @@ $data_text = "date\tnone\tfor\tagainst";
                       ; 
                     }
 
-                    </script>
+</script>
 
-                    <!-- Bootstrap Core JavaScript -->
-                    <script src="js/bootstrap.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
 
-                  </body>
+</body>
 
-                  </html>
+</html>
