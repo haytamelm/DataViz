@@ -11,10 +11,6 @@ ini_set('default_socket_timeout', 300);
 // connection bd
 include 'connectdb.php';
 
-// rebuilding indexes
-$conn->query("ANALYSE TABLE TWEET;");
-$conn->query("ANALYSE TABLE HASHTAG;");
-
 $fcontent_tweet = '';
 $fcontent_hashtag = '';
 
@@ -97,6 +93,10 @@ echo "tweet: ".$conn->error."<br/>";
 if(!$conn->query(
             "LOAD DATA INFILE '".$hcwd."' INTO TABLE hashtag(ID_TWEET,TXT_HASHTAG) SET ID_HASHTAG = NULL;")) 
 echo "hashtag: ".$conn->error."<br/>";
+
+// rebuilding indexes
+$conn->query("ANALYSE TABLE TWEET;");
+$conn->query("ANALYSE TABLE HASHTAG;");
 
 $conn->close();
 
