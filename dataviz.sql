@@ -36,3 +36,6 @@ alter table HASHTAG add constraint FK_ASSOCIATION_3 foreign key (ID_TWEET)
       
 create index all_tweet on tweet(topic_tweet,date_tweet,language_tweet,sentiment_tweet);
 create index date_index on tweet(date_tweet);
+create index txt_hashtag_index on hashtag(txt_hashtag);
+
+SET GLOBAL query_cache_size = 16777216;

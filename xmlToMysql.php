@@ -11,6 +11,10 @@ ini_set('default_socket_timeout', 300);
 // connection bd
 include 'connectdb.php';
 
+// rebuilding indexes
+$conn->query("ANALYSE TABLE TWEET;");
+$conn->query("ANALYSE TABLE HASHTAG;");
+
 $fcontent_tweet = '';
 $fcontent_hashtag = '';
 
@@ -18,6 +22,7 @@ if (!file_exists('txt_files/')) {
     mkdir('txt_files/', 0777, true);
 }
 
+// creation des fichiers
 $myfile = fopen("txt_files/tweetsfile.txt", "a") or die("Unable to open file!");
 $myfile2 = fopen("txt_files/hashtagsfile.txt", "a") or die("Unable to open file!");
 
